@@ -533,7 +533,7 @@ input.invalid {
 }
 
 /* Estilos para dispositivos móviles */
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     body {
         padding: 15px; /* Padding del body en móviles */
         display: flex; /* Mantenemos flexbox para la calculadora y las tasas */
