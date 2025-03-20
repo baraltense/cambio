@@ -29,17 +29,16 @@
                             <!-- Cantidad -->
                             <div class="input-group">
                                 <label for="amount"><i class="fas fa-money-bill-wave" aria-hidden="true"></i> Cantidad</label>
-                                <input type="tel" id="amount" placeholder="0,00" inputmode="decimal" aria-describedby="error-container">
+                                <input type="tel" id="amount" placeholder="0,00" inputmode="decimal">
                             </div>
 
                             <!-- Conversión -->
                             <div class="input-group">
                                 <label for="currency-type"><i class="fas fa-exchange-alt" aria-hidden="true"></i> Conversión</label>
-                                <select id="currency-type" aria-describedby="conversion-direction">
+                                <select id="currency-type">
                                     <option value="bolivares-to-dollars">Bs → USD</option>
                                     <option value="dollars-to-bolivares">USD → Bs</option>
                                 </select>
-                                <span id="conversion-direction" class="visually-hidden">Dirección de la conversión</span>
                             </div>
                         </div>
 
@@ -48,36 +47,31 @@
                             <!-- Tasa -->
                             <div class="input-group">
                                 <label for="exchange-rate"><i class="fas fa-chart-line" aria-hidden="true"></i> Tasa</label>
-                                <select id="exchange-rate" aria-describedby="rate-source">
+                                <select id="exchange-rate">
                                     <option value="bcv">Oficial (BCV)</option>
                                     <option value="enparalelovzla">EnParaleloVzla</option>
                                     <option value="promedio">Promedio</option>
                                     <option value="custom">Personalizada</option>
                                 </select>
-                                <span id="rate-source" class="visually-hidden">Fuente de la tasa de cambio</span>
                             </div>
 
                             <!-- Tasa Personalizada -->
                             <div class="input-group">
                                 <label for="custom-rate"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Seleccione</label>
-                                <input type="tel" id="custom-rate" placeholder="Ej: 36,85" inputmode="decimal" disabled aria-describedby="error-container">
+                                <input type="tel" id="custom-rate" placeholder="Ej: 36,85" inputmode="decimal" disabled>
                             </div>
                         </div>
                     </div>
-					
-					<span class="error-container-wrapper">
-                    <!-- Contenedor de errores -->
-                    <div class="error-container" id="error-container" role="alert" aria-live="assertive"></div>
-					                   </span>
-					 <span class="copy-message" id="copy-message" role="status" aria-live="polite">¡Copiado!</span>
+
                     <!-- Resultado -->
-                    <div class="result-container" aria-live="polite">
+                    <div class="result-container">
                         <div class="conversion-result" id="conversion-result">0,00</div>
                     </div>
+
+                    <!-- Botón de copiar -->
                     <button id="copy-btn" class="icon-btn" title="Copiar resultado al portapapeles">
                         <i class="far fa-copy" aria-hidden="true"></i> Copiar
                     </button>
-
                 </div>
             </section>
 
@@ -148,6 +142,14 @@
             </section>
         </main>
     </div>
+
+    <!-- Mensajes flotantes -->
+    <div class="message-container">
+        <div class="error-message" id="error-message" role="alert" aria-live="assertive"></div>
+        <div class="copy-message" id="copy-message" role="status" aria-live="polite">¡Copiado!</div>
+    </div>
+
+    <!-- Script principal -->
     <script src="script.js"></script>
 </body>
 </html>
