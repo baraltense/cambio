@@ -69,13 +69,21 @@ function hasMaxDigits(value, max = 15) {
 }
 
 function displayError(message) {
-    calculatorElements.errorContainer.textContent = message;
-    calculatorElements.errorContainer.classList.add('show');
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = message;
+    errorMessage.classList.add('show');
+
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(() => {
+        errorMessage.classList.remove('show');
+        errorMessage.textContent = ''; // Eliminar el contenido del mensaje
+    }, 3000);
 }
 
 function clearError() {
-    calculatorElements.errorContainer.textContent = '';
-    calculatorElements.errorContainer.classList.remove('show');
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = '';
+    errorMessage.classList.remove('show');
     calculatorElements.amountInput.classList.remove('invalid');
     calculatorElements.customRateInput.classList.remove('invalid');
 }
@@ -228,8 +236,6 @@ const updateMonitorDisplay = (id, monitor) => {
 };
 
 /* === CALCULATOR FUNCTIONS === */
-// ... (código JavaScript anterior) ...
-
 function updateTasaInput() {
     const rateType = calculatorElements.exchangeRateSelect.value;
     const customRateLabel = document.querySelector('label[for="custom-rate"]');
@@ -262,8 +268,6 @@ function updateTasaInput() {
         customRateLabel.innerHTML = labelText;
     }
 }
-
-// ... (código JavaScript posterior) ...
 
 function convertCurrency() {
     const amountStr = calculatorElements.amountInput.value.replace(',', '.');
@@ -351,10 +355,7 @@ calculatorElements.copyBtn.addEventListener('click', function() {
 
     navigator.clipboard.writeText(cleanedResult)
         .then(() => {
-            calculatorElements.copyMessage.style.display = 'block';
-            setTimeout(() => {
-                calculatorElements.copyMessage.style.display = 'none';
-            }, 2000);
+            showCopyMessage(); // Mostrar mensaje de copiado
         })
         .catch(err => {
             console.error('Error al copiar: ', err);
@@ -408,6 +409,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch exchange rate data
     fetchData();
 
-    // Set up periodic data refresh (every 10 minutes)
-    setInterval(fetchData, 600000);
+    // Set up periodic data refresh (every 5 minutes)
+    setInterval(fetchData, 300000);
 });
+
+/* === FUNCIONES PARA MENSAJES === */
+function showCopyMessage() {
+    const copyMessage = document.getElementById('copy-message');
+    copyMessage.textContent = '¡Copiado!'; // Asegurarse de que el texto esté presente
+    copyMessage.classList.add('visible');
+
+    // Ocultar el mensaje después de 2 segundos
+    setTimeout(() => {
+        copyMessage.classList.remove('visible');
+    }, 2000);
+}
