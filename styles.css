@@ -562,7 +562,7 @@ input.invalid {
     input,
     select {
         padding: 8px; /* Padding para inputs y selects */
-        font-size: 18px; /* Tamaño de fuente legible en móviles */
+        font-size: 16px; /* Tamaño de fuente legible en móviles */
     }
 
     .result-container {
@@ -579,15 +579,13 @@ input.invalid {
         font-size: 16px; /* Tamaño de fuente para el botón */
     }
 
-CSS
 
 /* Estilos para dispositivos móviles - Sección de Tasas */
-@media (max-width: 768px) {
-    .rates-grid {
+.rates-grid {
         display: flex;
         flex-direction: column;
         padding: 0 10px; /* Padding horizontal para separar del borde */
-        gap: 4px;
+        gap: 5px; /* REDUCIDO el espacio entre tarjetas */
     }
 
     .rate-card {
@@ -599,9 +597,9 @@ CSS
         margin: 0;
     }
 
-    /* La cabecera se mantiene sin cambios */
+    /* La cabecera se mantiene con padding reducido */
     .rate-card .card-header {
-        padding: 5px 10px 5px 10px;
+        padding: 3px 10px; /* REDUCIDO el padding vertical */
         background: var(--gradient-header);
         color: white;
         display: flex;
@@ -618,18 +616,18 @@ CSS
     }
 
     .rate-card .card-body {
-        padding: 5px 10px 5px 10px;
+        padding: 3px 10px; /* REDUCIDO el padding vertical */
     }
 
     .rate-card .rate-value {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 5px;
+        margin-bottom: 2px; /* REDUCIDO el margen inferior */
     }
 
     .rate-card .price {
-        font-size: 20px;
+        font-size: 18px; /* Ligeramente reducido */
         font-weight: 700;
     }
 
@@ -656,8 +654,8 @@ CSS
         justify-content: space-between;
         align-items: center;
         color: var(--text-light);
-        font-size: 11px;
-        padding: 8px 10px; /* Padding horizontal y vertical */
+        font-size: 10px; /* Ligeramente reducido */
+        padding: 5px 10px; /* REDUCIDO el padding vertical */
     }
 
     .rate-card .update-time {
